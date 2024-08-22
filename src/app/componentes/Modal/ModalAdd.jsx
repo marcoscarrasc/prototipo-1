@@ -20,10 +20,10 @@ export default function Modal({ isOpen, onClose, onSave }) {
         }
     };
 
-    const onCreate = () => {
+    const onCreate = (e) => {
        console.log("aaa")
         onSave({ 
-            id: data.id,
+            id : uuidv4(),
             quiebre: quiebre.toUpperCase(),
             motivo: motivo.toUpperCase(),
             estado,
@@ -154,6 +154,8 @@ export default function Modal({ isOpen, onClose, onSave }) {
                     </div>
 
                     <div>
+                    <button onClick={e => {alert("...")}}></button>
+
                         <label className="block text-sm font-medium text-gray-700 mb-1">Tipo de Atención</label>
                         <select
                             value={tipoatencion}
@@ -169,7 +171,6 @@ export default function Modal({ isOpen, onClose, onSave }) {
                         </select>
                     </div>
                 </div>
-
                 <div className="mt-6">
                     <button onClick={onCreate} className="bg-blue-500 text-white p-2 rounded w-full">
                         Guardar

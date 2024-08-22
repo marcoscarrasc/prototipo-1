@@ -9,32 +9,44 @@ import { database } from "../db/datos"
 
 export default function () {
     const [tematicos, setTematicos] = useState(database)
-
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const openModal = () => setIsModalOpen(true);
-    const closeModal = () => setIsModalOpen(false);
+    const [tematicoToUpdate, setTematicoToUpdate] = useState(null)
+    const [isModalCreateOpen, setIsModalCreateOpen] = useState(false);
+    const [isModalEditOpen, setIsModalEditOpen] = useState(false);
+    const openModal = () => setIsModalCreateOpen(true);
+    const closeModal = () => setIsModalCreateOpen(false);
+    const openEditModal = () => setIsModalEditOpen(true);
+    const closeEditModal = () => setIsModalEditOpen(false);
 
     const onCreate = (tematico) => {
-console.log(tematico)
+        console.log(tematico)
         setTematicos(prevState => ([...prevState, tematico]))
-
+        closeModal();
 
     }
 
-    const onEdit = (tematico) => {
-        setTematicos(prevState => ([...prevState, tematico]))
+    const onUpdate = (tematico) => {
+        const tematicosUpdated = tematicos.map((item) =>
+            item.id === tematico.id ? tematico : item
+        );
+        setTematicos(tematicosUpdated);
+        closeEditModal();
     }
 
+    const handleEdit = (tematico) => {
+
+        setTematicoToUpdate(tematico);
+        openEditModal();
+
+    };
 
     return (
         <>
             <h1 className="text-center text-3xl p-6">Mantenimiento de tematicos</h1>
-            <div className="flex justify-end">
+            <div className="flex justify-end mr-24 mt-24 ">
                 <Button onClick={openModal} color="amber">Agregar</Button></div>
-
-            <Table data={tematicos} ></Table>
-            <Modal isOpen={isModalOpen} onClose={closeModal} onSave={onCreate}></Modal>
-            <ModalEdit isOpen={isModalOpen} onClose={closeModal} onEdit={onEdit} ></ModalEdit>
+            <Table data={tematicos} edit={handleEdit}></Table>
+            <Modal isOpen={isModalCreateOpen} onClose={closeModal} onSave={onCreate}></Modal>
+            <ModalEdit isOpen={isModalEditOpen}  onClose={closeEditModal} onUpdate={onUpdate} data={tematicoToUpdate} ></ModalEdit>
         </>
     )
 }

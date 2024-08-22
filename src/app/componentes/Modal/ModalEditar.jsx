@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { QUIEBRES_OPTIONS, QUIEBREDERIVACION_OPTIONS, TIPO_ATENCION } from "../../../constants";
 
-export default function Modal({ isOpen, onClose, onEdit, data, save }) {
+export default function Modal({ isOpen, onClose, onUpdate, data}) {
+    const [id,setId] = useState("")
     const [quiebre, setQuiebre] = useState("");
     const [motivo, setMotivo] = useState("");
     const [subMotivo, setSubMotivo] = useState("");
@@ -13,6 +14,7 @@ export default function Modal({ isOpen, onClose, onEdit, data, save }) {
 
     useEffect(() => {
         if (data) {
+            setId(data.id || "");
             setQuiebre(data.quiebre || "");
             setMotivo(data.motivo || "");
             setSubMotivo(data.subMotivo || "");
@@ -33,8 +35,8 @@ export default function Modal({ isOpen, onClose, onEdit, data, save }) {
     };
 
     const onModific = () => {
-        onEdit({
-            id: data?.index,
+        onUpdate({
+            id,
             quiebre: quiebre.toUpperCase(),
             motivo: motivo.toUpperCase(),
             estado,

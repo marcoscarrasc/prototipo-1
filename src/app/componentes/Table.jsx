@@ -1,20 +1,16 @@
 import { useEffect, useState } from "react";
 import { Switch } from "@material-tailwind/react";
-import ModalEdit from "./Modal/ModalEditar"
 
-export default function TableComponent({ data, save }) {
-    const [tableData, setTableData] = useState(data);
+export default function TableComponent({ data, edit }) {
     const [switchStates, setSwitchStates] = useState({});
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const [editData, setEditData] = useState(null);
 
     useEffect(() => {
         const estados = {};
-        tableData.forEach((elemento) => {
-            estados[elemento.index] = elemento.enable || false;
+        data.forEach((elemento) => {
+            estados[elemento.index] = elemento.enable || true;
         });
         setSwitchStates(estados);
-    }, [tableData]);
+    }, [data]);
 
     const handleSwitchChange = (id) => {
         setSwitchStates((prev) => ({
@@ -23,31 +19,15 @@ export default function TableComponent({ data, save }) {
         }));
     };
 
-    const openModal = (rowData) => {
-        setEditData(rowData);
-        setIsModalOpen(true);
-    };
 
-    const closeModal = () => {
-        setIsModalOpen(false);
-        setEditData(null);
-    };
 
-    const guardar = () => { }
-    const handleEdit = (updatedData) => {
-        const updatedTableData = tableData.map((item) =>
-            item.id === updatedData.id ? updatedData : item
-        );
-        setTableData(updatedTableData);
-        guardar(updatedData);
-        closeModal();
-    };
+    
 
     return (
-        <div className="p-4">
-            <table className="w-full bg-white border border-gray-300 rounded-lg shadow-sm">
+        <div className="p-4 mr-20 ml-20 ">
+            <table className="w-full bg-white border ">
                 <thead>
-                    <tr className="bg-gray-100 text-gray-700 border-b border-gray-300">
+                    <tr className="bg-gray-100 text-gray-700 border-b border-gray-300 ">
                         {/* Cabeceras de la tabla */}
                         <th className="p-2 text-left text-sm">Quiebre</th>
                         <th className="p-2 text-left text-sm">Motivo</th>
@@ -62,7 +42,7 @@ export default function TableComponent({ data, save }) {
                     </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200">
-                    {tableData.map((row) => (
+                    {data.map((row) => (
                         <tr key={row.id} className="hover:bg-gray-50 transition-colors duration-200">
                             <td className="p-2 text-sm">{row.quiebre}</td>
                             <td className="p-2 text-sm">{row.motivo}</td>
@@ -74,7 +54,7 @@ export default function TableComponent({ data, save }) {
                             <td className="p-2 text-sm">{row.tipoatencion}</td>
                             <td className="p-2 text-sm">
                                 <button
-                                    onClick={() => openModal(row)}
+                                    onClick={() => edit(row)}
                                     className="bg-blue-500 text-white py-1 px-2 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-colors duration-150 text-xs"
                                 >
                                     Editar
@@ -92,14 +72,6 @@ export default function TableComponent({ data, save }) {
                 </tbody>
             </table>
 
-            {isModalOpen && (
-                <ModalEdit
-                    isOpen={isModalOpen}
-                    onClose={closeModal}
-                    onEdit={handleEdit}
-                    data={editData}
-                />
-            )}
         </div>
     );
 }
