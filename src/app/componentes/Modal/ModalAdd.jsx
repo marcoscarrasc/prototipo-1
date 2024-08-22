@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { QUIEBRES_OPTIONS, QUIEBREDERIVACION_OPTIONS, TIPO_ATENCION } from "../../../constants";
+import { v4 as uuidv4 } from 'uuid';
 
 export default function Modal({ isOpen, onClose, onSave }) {
     const [quiebre, setQuiebre] = useState("");
@@ -20,8 +21,9 @@ export default function Modal({ isOpen, onClose, onSave }) {
     };
 
     const onCreate = () => {
-        onSave({
-            id: "22",
+       console.log("aaa")
+        onSave({ 
+            id: data.id,
             quiebre: quiebre.toUpperCase(),
             motivo: motivo.toUpperCase(),
             estado,

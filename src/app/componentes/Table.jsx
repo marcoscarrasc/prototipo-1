@@ -11,7 +11,7 @@ export default function TableComponent({ data, save }) {
     useEffect(() => {
         const estados = {};
         tableData.forEach((elemento) => {
-            estados[elemento.id] = elemento.enable || false;
+            estados[elemento.index] = elemento.enable || false;
         });
         setSwitchStates(estados);
     }, [tableData]);
@@ -33,13 +33,13 @@ export default function TableComponent({ data, save }) {
         setEditData(null);
     };
 
-    const guardar=()=>{}
+    const guardar = () => { }
     const handleEdit = (updatedData) => {
         const updatedTableData = tableData.map((item) =>
             item.id === updatedData.id ? updatedData : item
         );
         setTableData(updatedTableData);
-        guardar(updatedData); 
+        guardar(updatedData);
         closeModal();
     };
 
