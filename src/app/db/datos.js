@@ -3,9 +3,9 @@ export const database =
 
     [
         {
-            "id": "1",
+           "id": "1",
             "quiebre": "BO LINEA DE RESCATE MXA",
-            "motivo": "NO APLICA",
+            "motivo": "marcos",
             "subMotivo": "OPCION INCORRECTA",
             "subNivel": "NO APLICA",
             "estado": "CERRADO",
@@ -18,7 +18,7 @@ export const database =
 
             "id": "2",
             "quiebre": "BO LINEA DE RESCATE MXA",
-            "motivo": "NO APLICA",
+            "motivo": "marcos",
             "subMotivo": "PEDIDO CMS",
             "subNivel": "NO APLICA",
             "estado": "CERRADO",
@@ -29,8 +29,8 @@ export const database =
         },
         {
 
-            "id": "3",
-            "quiebre": "BO LINEA DE RESCATE MXA",
+           "id": "3",
+            "quiebre": "BO LINEA DE  MXA",
             "motivo": "NO APLICA",
             "subMotivo": "ORDEN NO INICIADA",
             "subNivel": "NO APLICA",
@@ -127,7 +127,6 @@ export const database =
         },
         {
             "id": "11",
-            "quiebre": "bo linea de rescate mxa",
             "quiebre": "BO LINEA DE RESCATE MXA",
             "motivo": "CLIENTE POSTERGA",
             "subMotivo": "CON CUPO",
@@ -140,7 +139,6 @@ export const database =
         },
         {
             "id": "12",
-            "quiebre": "bo linea de rescate mxa",
             "quiebre": "BO LINEA DE RESCATE MXA",
             "motivo": "CLIENTE POSTERGA",
             "subMotivo": "SIN CUPO",
@@ -153,7 +151,6 @@ export const database =
         },
         {
             "id": "13",
-            "quiebre": "bo linea de rescate mxa",
             "quiebre": "BO LINEA DE RESCATE MXA",
             "motivo": "CLIENTE POSTERGA",
             "subMotivo": "CAIDA AGENDADOR",
@@ -166,7 +163,6 @@ export const database =
         },
         {
             "id": "14",
-            "quiebre": "bo linea de rescate mxa",
             "quiebre": "BO LINEA DE RESCATE MXA",
             "motivo": "CLIENTE DESEA OTRO PAQUETE",
             "subMotivo": "DESEA OTRO PAQUETE",
@@ -180,7 +176,6 @@ export const database =
         },
         {
             "id": "15",
-            "quiebre": "bo linea de rescate mxa",
             "quiebre": "BO LINEA DE RESCATE MXA",
             "motivo": "DUPLICIDAD DE PEDIDO",
             "subMotivo": "DUPLICIDAD DE PEDIDO",
@@ -193,7 +188,6 @@ export const database =
         },
         {
             "id": "16",
-            "quiebre": "bo linea de rescate mxa",
             "quiebre": "BO LINEA DE RESCATE MXA",
             "motivo": "OPOSICION DE VECINOS",
             "subMotivo": "OPOSICION DE VECINO",
@@ -206,7 +200,6 @@ export const database =
         },
         {
             "id": "17",
-            "quiebre": "bo linea de rescate mxa",
             "quiebre": "BO LINEA DE RESCATE MXA",
             "motivo": "MAL EMITIDA",
             "subMotivo": "MAL EMITIDA",
@@ -219,7 +212,6 @@ export const database =
         },
         {
             "id": "18",
-            "quiebre": "bo linea de rescate mxa",
             "quiebre": "BO LINEA DE RESCATE MXA",
             "motivo": "SI ES MXA MOT TECNICO",
             "subMotivo": "DEVUELTO POR TOA",
@@ -232,7 +224,6 @@ export const database =
         },
         {
             "id": "19",
-            "quiebre": "bo linea de rescate mxa",
             "quiebre": "BO LINEA DE RESCATE MXA",
             "motivo": "SI ES MXA MOT TECNICO",
             "subMotivo": "DEVUELTO POR TOOLBOX",
@@ -245,7 +236,6 @@ export const database =
         },
         {
             "id": "20",
-            "quiebre": "bo linea de rescate mxa",
             "quiebre": "BO LINEA DE RESCATE MXA",
             "motivo": "NO ES MXA MOT TECNICO",
             "subMotivo": "DEVUELTO POR TOA",
