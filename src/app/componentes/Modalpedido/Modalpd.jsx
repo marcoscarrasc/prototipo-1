@@ -1,27 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 
 export default function Modalpd({ abrir, cerrar, image, onSave }) {
-    const [name, setName] = useState('');
-    const [address, setAddress] = useState('');
-    const [order, setOrder] = useState('');
+    const [name, setName] = useState('')
+    const [address, setAddress] = useState('')
+    const [order, setOrder] = useState('')
 
-    if (!abrir) return null;
+    if (!abrir) return null
 
-    const handleNameChange = (e) => setName(e.target.value);
-    const handleAddressChange = (e) => setAddress(e.target.value);
-    const handleOrderChange = (e) => setOrder(e.target.value);
+    const handleNameChange = (e) => setName(e.target.value)
+    const handleAddressChange = (e) => setAddress(e.target.value)
+    const handleOrderChange = (e) => setOrder(e.target.value)
 
     const handleSubmit = (e) => {
-        e.preventDefault();
+        e.preventDefault()
         const orderData = {
             ...image,
             name,
             address,
             order,
-        };
-        onSave(orderData); // Pasa los datos del pedido a la función de guardado
-        cerrar(); // Cierra el modal después de guardar
-    };
+        }
+        onSave(orderData) // Pasa los datos del pedido a la función de guardado
+        cerrar() // Cierra el modal después de guardar
+    }
 
     return (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
@@ -29,7 +29,7 @@ export default function Modalpd({ abrir, cerrar, image, onSave }) {
                 <button 
                     onClick={cerrar} 
                     className="absolute top-2 right-2 text-gray-600">
-                    &times;
+                        X
                 </button>
                 <h2 className="text-lg font-semibold mt-4">{image.title}</h2>
                 <p className="text-gray-600">{image.price}</p>
@@ -82,5 +82,5 @@ export default function Modalpd({ abrir, cerrar, image, onSave }) {
                 </form>
             </div>
         </div>
-    );
+    )
 }

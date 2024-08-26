@@ -10,6 +10,7 @@ export default function Home() {
       <Link href={'/SeleccionTematicos'}>Prototipo02</Link>
 
       <Link  href={'/Comida'}>Comida Rapida</Link>
+      <Link  href={'/paginas'}>portada</Link>
 
     </>
   )
